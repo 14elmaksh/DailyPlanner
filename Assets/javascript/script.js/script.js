@@ -1,3 +1,3 @@
 var currentDay = document.querySelector("#currentDay");
 
-currentDay.textContent = moment();
+currentDay.textContent = moment().format("dddd, MMMM Do, YYYY");
