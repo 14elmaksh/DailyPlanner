@@ -4,7 +4,7 @@ body {
   line-height: 1;
 }
 
-textarea {
+input {
   background: transparent;
   border: none;
   resize: none;
@@ -28,6 +28,7 @@ textarea {
 .time-block {
   text-align: center;
   border-radius: 15px;
+  background-color: red;
 }
 
 .row {
@@ -68,4 +69,8 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.form-control {
+  height: 150px
 }
