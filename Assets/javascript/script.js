@@ -1,20 +1,59 @@
 
+timecheck(); 
+getPlans();
+
+
+var currentDay = moment().format('MMMM Do YYYY');
+
+$("#currentDay").text(currentDay);
+
+function timecheck(){
+    var currentHour =  moment().format('H');
+    console.log("the current hour" + currentHour);
+    $(".input-group-text").each(function(){
+        let blockTime = $(this).siblings("input").attr("id");
+        console.log(blockTime)
+        if (currentHour > blockTime){
+            $(this).attr("class",'input-group-text past');
+        } else if (currentHour === blockTime) {
+            $(this).attr("class", "input-group-text present");
+        }    
+    })
+    
+}
+
+function getPlans(){
+    $(".form-control").each(function(){
+        let id = $(this).attr("id");
+
+        if(localStorage.getItem(id)){
+            $(this).val(localStorage.getItem(id))
+            // Set Textbox of "this" to local storage value
+    };
+})}
+// onclick function to store retrieved form input
+$(".saveBtn").on("click", function(){
+    let message = $(this).parent().prev().val();
+    let time = $(this).parent().prev().attr("id");
+    localStorage.setItem(time, message);
 
 
 
-var nine = document.getElementById("9am").value;
-var ten = document.getElementById("10am").value;    
-var eleven = document.getElementById("11am").value;
-var twelve = document.getElementById("12pm").value;
-var one = document.getElementById("1pm").value;
-var two = document.getElementById("2pm").value;
-var three = document.getElementById("3pm").value;
-var four = document.getElementById("4pm").value;
 
-// console.log(nine.value);
+    // Targeting different parent, child, etc..(query cheatsheet)
+    // console.log($(this).parent().prev().val());
+    // Targeting the "id" in the value. When savebutton is cliced-targets that timeslot
+    // console.log($(this).parent().prev().attr("id"));
+
+ 
+
+    
+})
 
 
-localStorage.setItem("time", nine;)
+
+
+// localStorage.setItem("time", nine)
 
 // var saveB = document.querySelector(".saveBtn");
 
@@ -27,11 +66,8 @@ localStorage.setItem("time", nine;)
 // // get input values from form
 // inputBox.value = localStorage.getItem("notesT");
 
-// // onclick function to store retrieved form input
-// $("saveBtn").on("click", function(){
-//     localStorage.setItem("notesT", inputBox.value)
-//     console.log($(this));
-// })
+
+
 
 
 
